@@ -1,0 +1,34 @@
+{
+  "groupCities": {
+    "LON": ["LHR", "LGW", "STN"]
+  },
+  "destinationRules": [
+    {
+      "destination": "BKK",
+      "airlines": [
+        { "airline": "TG", "isDirect": true, "via": "", "allowedOrigins": ["LHR"] },
+        { "airline": "BA", "isDirect": true, "via": "", "allowedOrigins": [] },
+        { "airline": "EK", "isDirect": false, "via": "DXB", "allowedOrigins": [] },
+        { "airline": "QR", "isDirect": false, "via": "DOH", "allowedOrigins": [] },
+        { "airline": "EY", "isDirect": false, "via": "AUH", "allowedOrigins": [] }
+      ]
+    },
+    {
+      "destination": "JFK",
+      "airlines": [
+        { "airline": "BA", "isDirect": true, "via": "", "allowedOrigins": [] },
+        { "airline": "VS", "isDirect": true, "via": "", "allowedOrigins": [] },
+        { "airline": "AA", "isDirect": true, "via": "", "allowedOrigins": [] },
+        { "airline": "DL", "isDirect": true, "via": "", "allowedOrigins": [] }
+      ]
+    },
+    {
+      "destination": "ATH",
+      "airlines": [
+        { "airline": "BA", "isDirect": true, "via": "", "allowedOrigins": [] },
+        { "airline": "A3", "isDirect": true, "via": "", "allowedOrigins": [] },
+        { "airline": "OA", "isDirect": true, "via": "", "allowedOrigins": [] }
+      ]
+    }
+  ]
+}

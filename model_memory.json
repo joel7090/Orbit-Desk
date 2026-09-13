@@ -1,0 +1,343 @@
+[
+  {
+    "id": "std_amadeus_infant",
+    "title": "Amadeus Infant Segment Sale",
+    "gds": "amadeus",
+    "keywords": "infant, baby, child, ss1inf1, book baby",
+    "expectedCommand": "SS1INF1",
+    "commandDescription": "SS (Sell Status) + 1 (Line number from availability) + INF (Infant code) + 1 (Qty) - Books segment correctly.",
+    "terminalOutput": "SS1INF1\n 1  BA 115 Y 15OCT LHRJFK HK1/INF1  0830 1130\n>",
+    "topic": "Infants & Children"
+  },
+  {
+    "id": "std_sabre_infant",
+    "title": "Sabre Infant SSR Command",
+    "gds": "sabre",
+    "keywords": "infant, baby, child, 3inf, register infant",
+    "expectedCommand": "3INFT/1.1",
+    "commandDescription": "3 (Special Service indicator) + INFT (Infant code) + /1.1 (pax sequence linking)",
+    "terminalOutput": "3INFT/1.1\n  SSR INFT YY RECD CONFIRMED OK FOR PAX 1.1\n*",
+    "topic": "Infants & Children"
+  },
+  {
+    "id": "std_amadeus_wheelchair",
+    "title": "Amadeus Wheelchair Special Request",
+    "gds": "amadeus",
+    "keywords": "wheelchair, wchr, mobility, disabled, wheelchair request",
+    "expectedCommand": "SR WCHR",
+    "commandDescription": "Wheelchair Ramp – passenger can walk short distance",
+    "terminalOutput": "SRWCHR/P1\n  SSR WCHR BA HK1 CONFIRMED FOR SMITH/ANNA MS\n>",
+    "topic": "Special Services (SSR)",
+    "pnrRequired": true,
+    "appendPnrLine": true,
+    "pnrLineTemplate": "SSR WCHR [AL] HK"
+  },
+  {
+    "id": "std_sabre_wheelchair",
+    "title": "Sabre Wheelchair Entry",
+    "gds": "sabre",
+    "keywords": "wheelchair, wchr, mobility, disabled, wheelchair entry",
+    "expectedCommand": "3WCHRA/1.1",
+    "commandDescription": "3 (SSR modifier) + WCHRA (Wheelchair SSR code) + /1.1 (Traveler sequence pairing)",
+    "terminalOutput": "3WCHRA/1.1\n  SSR WCHRA YY LOGGED DIRECT CODES FOR PASSENGER 1.1\n*",
+    "topic": "Special Services (SSR)"
+  },
+  {
+    "id": "std_galileo_wheelchair",
+    "title": "Galileo Wheelchair Standard Integration",
+    "gds": "galileo",
+    "keywords": "wheelchair, wchr, mobility, disabled, wheelchair request",
+    "expectedCommand": "SI.DL*WCHR",
+    "commandDescription": "SI. (Special Information prefix) + DL (Carrier double code) + *WCHR (Assistance Request identifier)",
+    "terminalOutput": "SI.DL*WCHR\n  01 SPECIAL SERVICE DETAILS REGISTERED SECURELY - STATUS HK1\n>",
+    "topic": "Special Services (SSR)"
+  },
+  {
+    "id": "std_amadeus_vegmeal",
+    "title": "Amadeus Vegetarian Meal (VGML)",
+    "gds": "amadeus",
+    "keywords": "veg, meal, vegetarian, dietary, vgml, request meal",
+    "expectedCommand": "SRVGML/P1",
+    "commandDescription": "SR (Special Request) + VGML (Vegetarian standard code) + /P1 (Passenger index lookup)",
+    "terminalOutput": "SRVGML/P1\n  SSR VGML BA HK1 RECORD COMPLETED FOR TRANS 1\n>",
+    "topic": "Special Services (SSR)"
+  },
+  {
+    "id": "std_sabre_vegmeal",
+    "title": "Sabre Vegetarian Meal Request (VGML)",
+    "gds": "sabre",
+    "keywords": "veg, meal, vegetarian, dietary, vgml, request meal",
+    "expectedCommand": "3VGML/1.1",
+    "commandDescription": "3 (SSR line code) + VGML (Vegetarian vegan meal code) + /1.1 (Pax sequence linking)",
+    "terminalOutput": "3VGML/1.1\n  SSR VGML YY LOGGED IN MEAL LEDGER FOR PAX 1.1\n*",
+    "topic": "Special Services (SSR)"
+  },
+  {
+    "id": "std_galileo_vegmeal",
+    "title": "Galileo Vegetarian Meal Request (VGML)",
+    "gds": "galileo",
+    "keywords": "veg, meal, vegetarian, dietary, vgml, request meal",
+    "expectedCommand": "SI.BA*VGML",
+    "commandDescription": "SI. (Special Info) + BA (Carrier identifier) + *VGML (Standard meal indicator)",
+    "terminalOutput": "SI.BA*VGML\n  01 SI VGML BA HK1 RECORD CONFIRMED SECURELY BY CARRIER\n>",
+    "topic": "Special Services (SSR)"
+  },
+  {
+    "id": "std_amadeus_pnr",
+    "title": "Amadeus Name Entry (NM1)",
+    "gds": "amadeus",
+    "keywords": "enter name, insert name, add name, nm1",
+    "expectedCommand": "NM1SMITH/ANNA MS",
+    "commandDescription": "NM1 (Name Field, 1 Pax) + SMITH/ANNA MS (Last/First Title)",
+    "terminalOutput": "NM1SMITH/ANNA MS\n 1 SMITH/ANNA MS\n>",
+    "topic": "Passenger Names"
+  },
+  {
+    "id": "std_sabre_pnr",
+    "title": "Sabre Name Insert",
+    "gds": "sabre",
+    "keywords": "enter name, insert name, add name, name entry",
+    "expectedCommand": "-SMITH/ANNA MS",
+    "commandDescription": "- (Name entry prefix character) + SMITH/ANNA MS (Last/First Title)",
+    "terminalOutput": "-SMITH/ANNA MS\n1.1 SMITH/ANNA MS\n*",
+    "topic": "Passenger Names"
+  },
+  {
+    "id": "std_galileo_pnr",
+    "title": "Galileo Name Entry",
+    "gds": "galileo",
+    "keywords": "enter name, insert name, add name, name entry",
+    "expectedCommand": "N.SMITH/ANNA MS",
+    "commandDescription": "N. (Name format code) + SMITH/ANNA MS (Last/First Title)",
+    "terminalOutput": "N.SMITH/ANNA MS\n1.1SMITH/ANNA MS\n>",
+    "topic": "Passenger Names"
+  },
+  {
+    "id": "std_amadeus_hotel",
+    "title": "Amadeus Hotel Availability by Date",
+    "gds": "amadeus",
+    "keywords": "hotel availability, find hotel, search hotel, HASAN, check hotel",
+    "expectedCommand": "HASAN6FEB-9FEB/RT-2",
+    "commandDescription": "HA (Hotel Availability) + SAN (City code San Diego) + Date range (6FEB-9FEB) + /RT-2 (Rate code for 2 adults)",
+    "terminalOutput": "HASAN6FEB-9FEB/RT-2\n** AMADEUS HOTEL AVAILABILITY - HA ** SAN DIEGO, CA\n 1  MARRIOTT GASLAMP SAN  SGL/DBL  USD 185.00  REQS OK\n 2  HILTON SANDIEGO BAY   SGL/DBL  USD 210.00  REQS OK\n>",
+    "topic": "Hotel Bookings"
+  },
+  {
+    "id": "std_sabre_hotel",
+    "title": "Sabre Hotel Availability",
+    "gds": "sabre",
+    "keywords": "hotel availability, find hotel, search hotel, HOTSAN, check hotel",
+    "expectedCommand": "HOTSAN/6FEB-3NT2",
+    "commandDescription": "HOT (Hotel availability) + SAN (San Diego) + / + check in date + duration 3 nights + 2 adults",
+    "terminalOutput": "HOTSAN/6FEB-3NT2\nSABRE HOTEL DIRECTORY - SAN SAN DIEGO 06FEB-09FEB 2 Adults\n 1 MARRIOTT SAN GASLAMP  SGLD  USD 185.00 NT\n 2 HILTON SAN BAYFRONT    SGLD  USD 210.00 NT\n*",
+    "topic": "Hotel Bookings"
+  },
+  {
+    "id": "std_galileo_hotel",
+    "title": "Galileo Hotel Availability",
+    "gds": "galileo",
+    "keywords": "hotel availability, find hotel, search hotel, HOA6FEB, check hotel",
+    "expectedCommand": "HOA6FEB-09FEBSAN2",
+    "commandDescription": "HOA (Hotel Availability) + check in date + hyphen + check out date + SAN city + 2 guests",
+    "terminalOutput": "HOA6FEB-09FEBSAN2\n* TRAVELPORT GALILEO HOTEL INDEX - SAN DIEGO 06FEB-09FEB *\n01 MARRIOTT GASLAMP SGL  USD185.00  B-Y\n02 HILTON BAYFRONT  SGL  USD210.00  B-Y\n>",
+    "topic": "Hotel Bookings"
+  },
+  {
+    "id": "std_amadeus_car",
+    "title": "Amadeus Car Availability",
+    "gds": "amadeus",
+    "keywords": "car availability, rent car, car hire, CADEN, check car",
+    "expectedCommand": "CADEN23AUG-25AUG/ARR-9A-9P",
+    "commandDescription": "CA (Car Availability) + DEN (Denver) + Date range (23AUG-25AUG) + /ARR-9A-9P (Arrival/Departure time)",
+    "terminalOutput": "CADEN23AUG-25AUG/ARR-9A-9P\n** AMADEUS CAR AVAILABILITY - CAR ** DEN DENVER\n 1  ZE ECAR COLD DEN0900/0900  USD 45.00 DAY\n 2  ZI CCAR COLD DEN0900/0900  USD 49.00 DAY\n>",
+    "topic": "Car Rentals"
+  },
+  {
+    "id": "std_sabre_car",
+    "title": "Sabre Car Availability",
+    "gds": "sabre",
+    "keywords": "car availability, rent car, car hire, CFDEN, check car",
+    "expectedCommand": "CFDEN/23AUG-25AUG/1P-6P",
+    "commandDescription": "CF (Car Availability command) + DEN (Denver) + / + check in, check out dates + 1P check in, 6P drop off time",
+    "terminalOutput": "CFDEN/23AUG-25AUG/1P-6P\nSABRE CAR DIRECTORY - DEN DENVER 23AUG-25AUG\n 1 HERTZ ECAR DAILY USD 45.00 UNL\n 2 AVIS  CCAR DAILY USD 49.00 UNL\n*",
+    "topic": "Car Rentals"
+  },
+  {
+    "id": "std_galileo_car",
+    "title": "Galileo Car Availability",
+    "gds": "galileo",
+    "keywords": "car availability, rent car, car hire, CAL/, check car",
+    "expectedCommand": "CAL/DT-1500",
+    "commandDescription": "CAL (Car Availability) + / + DT (Denver airport code) + -1500 (Rent time)",
+    "terminalOutput": "CAL/DT-1500\n* TRAVELPORT GALILEO CAR AVAILABILITY - DEPART DT (DEN) *\n 1 ZI ECAR USD45.00 DY - CONTRACT RATES SECURED\n 2 ZE CCAR USD49.00 DY - CONTRACT RATES SECURED\n>",
+    "topic": "Car Rentals"
+  },
+  {
+    "id": "std_amadeus_encode_city",
+    "title": "Amadeus Encode City name",
+    "gds": "amadeus",
+    "keywords": "encode city, encode peoria, how to encode, city encoding",
+    "expectedCommand": "DANPEORIA",
+    "commandDescription": "DAN (Decode/Encode name prefix) + Name to encode (PEORIA)",
+    "terminalOutput": "DANPEORIA\nPEORIA ILL, USA           PIA\n>",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_sabre_encode_city",
+    "title": "Sabre Encode City name",
+    "gds": "sabre",
+    "keywords": "encode city, encode peoria, how to encode, city encoding",
+    "expectedCommand": "W/-CCPEORIA",
+    "commandDescription": "W/ (Workstation utility) + -CC (Encode City Code flag) + PEORIA",
+    "terminalOutput": "W/-CCPEORIA\nPEORIA ILLINOIS           PIA\n*",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_galileo_encode_city",
+    "title": "Galileo Encode City name",
+    "gds": "galileo",
+    "keywords": "encode city, encode peoria, how to encode, city encoding",
+    "expectedCommand": ".CE PEORIA",
+    "commandDescription": ".CE (Encode City/Airport standard command) + PEORIA",
+    "terminalOutput": ".CE PEORIA\nPEORIA ILLINOIS           PIA\n>",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_amadeus_decode_city",
+    "title": "Amadeus Decode City Code",
+    "gds": "amadeus",
+    "keywords": "decode city, decode pia, decode nyc, decode airport",
+    "expectedCommand": "DACPIA",
+    "commandDescription": "DAC (Decode Airport City indicator) + Airport/City IATA Code (PIA)",
+    "terminalOutput": "DACPIA\nPIA   PEORIA ILLINOIS USA - GREATER PEORIA REGIONAL\n>",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_sabre_decode_city",
+    "title": "Sabre Decode City Code",
+    "gds": "sabre",
+    "keywords": "decode city, decode pia, decode nyc, decode airport",
+    "expectedCommand": "W/*PIA",
+    "commandDescription": "W/ (Workstation utility) + * (Display Decode) + PIA",
+    "terminalOutput": "W/*PIA\nPIA   PEORIA ILLINOIS USA - GREATER PEORIA REGIONAL\n*",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_galileo_decode_city",
+    "title": "Galileo Decode City Code",
+    "gds": "galileo",
+    "keywords": "decode city, decode pia, decode nyc, decode airport",
+    "expectedCommand": ".CD NYC",
+    "commandDescription": ".CD (Decode City command) + NYC",
+    "terminalOutput": ".CD NYC\nNYC   NEW YORK  NY  USA - ALL METROPOLITAN AIRPORTS\n>",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_amadeus_currency",
+    "title": "Amadeus Currency Exchange",
+    "gds": "amadeus",
+    "keywords": "currency, exchange, convert currency, FXS, conversion",
+    "expectedCommand": "FQC35000JPY/USD/B",
+    "commandDescription": "FQC (Fare Quote Conversion) + amount and currency (35000JPY) + /target currency (USD) + /B (Bank Sell rate)",
+    "terminalOutput": "FQC35000JPY/USD/B\nCONVERSION EUR RECONSTRUCTED\n35000 JPY = 224.50 USD\nBANK SELL RATE - SECURE EXCHANGE RATIO APPLIED\n>",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_sabre_currency",
+    "title": "Sabre Currency Exchange",
+    "gds": "sabre",
+    "keywords": "currency, exchange, convert currency, conversion",
+    "expectedCommand": "DC+JPY3500/USD",
+    "commandDescription": "DC+ (Direct Conversion command) + JPY3500 + / + target currency USD",
+    "terminalOutput": "DC+JPY3500/USD\n3500 JPY = 22.45 USD\nRATE APPLIED 1 USD = 155.90 JPY\n*",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_galileo_currency",
+    "title": "Galileo Currency Exchange",
+    "gds": "galileo",
+    "keywords": "currency, exchange, convert currency, conversion",
+    "expectedCommand": "FZSJPY35000USD",
+    "commandDescription": "FZS (Fare Zero Segment Currency Converter) + source currency with amount (JPY35000) + target currency (USD)",
+    "terminalOutput": "FZSJPY35000USD\n35000 JPY = 224.50 USD\n1.00 USD = 155.90 JPY\n>",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_amadeus_time",
+    "title": "Amadeus Determine Local Time",
+    "gds": "amadeus",
+    "keywords": "local time, determine time, check time, timezone, HNL",
+    "expectedCommand": "DDHNL",
+    "commandDescription": "DD (Display Date-Time) + Airport Code HNL",
+    "terminalOutput": "DDHNL\nDATE: 29MAY26 FRIDAY\nHONOLULU CO TIME: 0025\n>",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_sabre_time",
+    "title": "Sabre Determine Local Time",
+    "gds": "sabre",
+    "keywords": "local time, determine time, check time, timezone, HNL",
+    "expectedCommand": "T*HNL",
+    "commandDescription": "T* (Time Display) + HNL city",
+    "terminalOutput": "T*HNL\nHONOLULU HAWAII TIME: 0025\n*",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_galileo_time",
+    "title": "Galileo Determine Local Time",
+    "gds": "galileo",
+    "keywords": "local time, determine time, check time, timezone, HNL",
+    "expectedCommand": "3LTHNL",
+    "commandDescription": "3LT (Time Display command) + City HNL",
+    "terminalOutput": "3LTHNL\nHONOLULU CURRENT TIME: 0025\n>",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "std_amadeus_record_locator",
+    "title": "Amadeus Airline Record Locator Display",
+    "gds": "amadeus",
+    "keywords": "airline location, vendor locator, record locator, rl, display locator, display airline local, ticket number, ticket no, tkt designator, ticket receipt, tkt no, check ticket, check a ticket, check a ticket number",
+    "expectedCommand": "RL",
+    "commandDescription": "RL (Record Location) displays the airline/vendor record locators for the carrier segment bookings in the active itinerary.",
+    "terminalOutput": "RL\nRP/XXXXXXXXX/XXXXXXXXX TN/SU 19FEB25/0747Z 4RSZLV\nBA/4RSZLV TK/UD52QT (example)\n>",
+    "topic": "System Utilities"
+  },
+  {
+    "id": "mem_mbglerryr",
+    "title": "test",
+    "gds": "amadeus",
+    "keywords": "testing ground",
+    "expectedCommand": "TEST11",
+    "commandDescription": "testing ground",
+    "terminalOutput": "test to see if works",
+    "topic": "Custom Overrides"
+  },
+  {
+    "id": "mem_if44s6n05",
+    "title": "arnk",
+    "gds": "amadeus",
+    "keywords": "ARNK",
+    "expectedCommand": "SI {FREE TEXT}",
+    "commandDescription": "Adds {FREE TEXT} segment in the middle.",
+    "terminalOutput": "{FREE TEXT} ADDED",
+    "topic": "Custom Overrides",
+    "pnrRequired": true,
+    "appendPnrLine": true,
+    "pnrLineTemplate": "{FREE TEXT}",
+    "pnrLinePosition": "middle"
+  },
+  {
+    "id": "mem_g8hxob8jl",
+    "title": "Received from",
+    "gds": "amadeus",
+    "keywords": "Received from",
+    "expectedCommand": "RF {FREE TEXT}",
+    "commandDescription": "Adds the Received from Field to Amadeus",
+    "terminalOutput": "RP/XXXXXXXXX/\nRF {FREE TEXT}",
+    "topic": "Custom Overrides",
+    "pnrRequired": true,
+    "appendPnrLine": true,
+    "pnrLineTemplate": "",
+    "pnrLinePosition": "bottom"
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "name": "Orbit Desk",
+  "description": "Learn and master GDS systems (Amadeus, Galileo, Sabre) with the Orbit Desk GDS Simulator, powered by real-time AI guidance and terminal emulation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
